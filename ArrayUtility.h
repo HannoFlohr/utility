@@ -6,6 +6,27 @@
 #include <limits>
 #include <vector>
 #include <deque>
+#include <iostream>
+
+//generates all subsets of length k of the elements of array a 
+std::vector<std::vector<int>> subsets = std::vector<std::vector<int>>();
+void makeSubsets(const std::vector<int>& a, const unsigned int& k, std::vector<int> subset=std::vector<int>(), unsigned int index_subset=0, unsigned int index_a=0) {
+	if(subset.size()!=k) 
+		subset.resize(k);
+	
+	//k element subset created -> add to subsets 
+	if(index_subset == k) {
+		subsets.push_back(subset);
+		return;
+	}
+	
+	//no more elements in a to add
+	if(index_a >= a.size()) return;
+	
+	subset[index_subset] = a[index_a];
+	makeSubsets(a, k, subset, index_subset+1, index_a+1);
+	makeSubsets(a, k, subset, index_subset, index_a+1);
+}
 
 //returns the maximum subarray sum of 'v' 
 int maxSubarraySum(const std::vector<int>& v) {
