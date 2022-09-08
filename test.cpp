@@ -1,18 +1,22 @@
 #include<bits/stdc++.h>
 //#include "SuffixTree.h"
-#include "ArrayUtility.h"
+//#include "ArrayUtility.h"
+#include "RomanIntegerConversion.h" 
 
 using namespace std;
 
 
 
 int main() {
+	
+	cout << romanToInt("MCMXCIV") << endl;
+	cout << intToRoman(1994) <<endl;
 
-	vector<int> a = {1,2,3,4,5};
+	//vector<int> a = {1,2,3,4,5};
 
-	makeSubsets(a,3);
+	//makeSubsets(a,3);
 
-	for(auto sub:subsets) { for(auto s:sub) { cout<<s<<" ";} cout<<endl; } 
+	//for(auto sub:subsets) { for(auto s:sub) { cout<<s<<" ";} cout<<endl; } 
 	
 	//string s = "THIS IS A TEST TEXT$"; 
 	//SuffixTree sft (s);
