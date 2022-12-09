@@ -8,6 +8,22 @@
 #include <deque>
 #include <iostream>
 
+//returns the longest increasing subarray length of vector v
+int longestIncreasingSubsequenceLength(std::vector<int>& v) {
+	std::vector<int> lis;
+	
+	for(size_t i=0; i<v.size(); i++) {
+		auto it = std::lower_bound(lis.begin(), lis.end(), v[i]);
+		
+		if(it == lis.end())
+			lis.push_back(v[i]);
+		else
+			*it = v[i];
+	}
+	
+	return lis.size();
+}
+
 //generates all subsets of length k of the elements of array a 
 std::vector<std::vector<int>> subsets = std::vector<std::vector<int>>();
 void makeSubsets(const std::vector<int>& a, const unsigned int& k, std::vector<int> subset=std::vector<int>(), unsigned int index_subset=0, unsigned int index_a=0) {
@@ -28,7 +44,7 @@ void makeSubsets(const std::vector<int>& a, const unsigned int& k, std::vector<i
 	makeSubsets(a, k, subset, index_subset, index_a+1);
 }
 
-//returns the maximum subarray sum of 'v' 
+//returns the maximum subarray sum of 'v' ("Kadane's Algorithm") 
 int maxSubarraySum(const std::vector<int>& v) {
 	//make sure that the input is not empty
 	assert(v.size() > 0);
