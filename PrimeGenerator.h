@@ -4,7 +4,7 @@
 template<typename T, class = typename std::enable_if<std::is_integral<T>::value>::type> 
 class PrimeGenerator {
 private:
-	T limit;
+	T limit = 0;
 	std::vector<T> primes;
 	std::vector<bool> is_prime;
 
@@ -29,17 +29,28 @@ private:
 	}
 
 public:
-	PrimeGenerator(const T& n) : limit(n) {
+	const std::vector<T>& primesUpTo(const T& n) {
+		primes.clear();
+		limit = n;
 		sieveOfEratosthenes();
 		fillVectorWithPrimeNumbers();
-	}
-
-	const std::vector<T>& getPrimes() const {
 		return primes;
 	}
 
+	const std::vector<bool> isPrimeInRange(const T& left, const T& right) {
+		std::vector<bool> prime (right - left + 1, true);
+		for (long long int i = 2; i <= sqrt(right); i++)
+			for (long long int j = max(i * i, (left + i - 1) / i * i); j <= right; j += i)
+				prime[j - left] = false;
+		
+		if (left == 1) prime[0] = false;
+
+		return prime;
+	}
+
 	T countPrimeFactorsOf(T n) {
-		if (n > limit) return -1; 
+		if (n > limit) primesUpTo(n);
+
 		if (is_prime[n]) return 1;
 
 		T prime_factor_count = 0;
@@ -54,7 +65,8 @@ public:
 	}
 
 	std::vector<T> getPrimeFactorsOf(T n) {
-		if (n > limit || n < 2) return {}; 
+		if (n > limit) primesUpTo(n);
+
 		if (is_prime[n]) return { n };
 		 
 		vector<T> prime_factors; 

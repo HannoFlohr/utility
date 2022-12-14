@@ -8,10 +8,13 @@ using namespace std;
 
 
 int main() {
+
+	//MillerRabinPrimalityTest test; 
+	//auto number = 5852260055929319999;
+	//cout << number << (test.is_prime(number) == 1 ? " is prime" : " is not prime") << endl;
 	
-	PrimeGenerator<int> pg(100);
-	
-	vector<int> primes = pg.getPrimes();
+	PrimeGenerator<int> pg;
+	vector<int> primes = pg.primesUpTo(100);
 
 	for (auto& p : primes)
 		cout << p << " ";
@@ -23,7 +26,7 @@ int main() {
 		vector<int> pf = pg.getPrimeFactorsOf(i);
 		for (auto& f : pf)cout << f << " ";
 		cout << endl;
-	}
+	} */
 	//vector<int> a = {1,2,3,4,5};
 
 	//makeSubsets(a,3);

@@ -108,6 +108,8 @@
     <ClInclude Include="LongIntegerMod.h" />
     <ClInclude Include="LRUCache.h" />
     <ClInclude Include="Matrix.h" />
+    <ClInclude Include="MillerRabinPrimalityTest.h" />
+    <ClInclude Include="ModuloForHighIntegers.h" />
     <ClInclude Include="PrimeGenerator.h" />
     <ClInclude Include="PrimesUtility.h" />
     <ClInclude Include="RomanIntegerConversion.h" />
