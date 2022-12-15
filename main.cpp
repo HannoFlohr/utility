@@ -1,6 +1,8 @@
-//#include "SuffixTree.h"
-//#include "ArrayUtility.h"
+
+#include "VectorUtility.h"
 #include "PrimeGenerator.h"
+#include "StringUtility.h"
+#include "Trie.h"
 #include<iostream>
 
 using namespace std;
@@ -8,26 +10,23 @@ using namespace std;
 
 
 int main() {
+	TrieNode* root = new TrieNode();
+	root->insert("hello");
+	cout << root->search("hello") << endl;
+	root->insert("helloworld");
+	cout << root->search("hellow") << endl;
+	root->insert("world");
+	root->insert("hell");
+	root->insert("h");
+	root->remove(root, "hello");
+	cout << root->search("hello") << endl;
+	cout << root->search("helloworld") << endl;
 
-	//MillerRabinPrimalityTest test; 
-	//auto number = 5852260055929319999;
-	//cout << number << (test.is_prime(number) == 1 ? " is prime" : " is not prime") << endl;
-	
-	PrimeGenerator<int> pg;
-	vector<int> primes = pg.primesUpTo(100);
+	root->remove(root, "h");
+	cout << root->search("h") << endl;
+	cout << root->search("hell") << endl;
+	cout << root->search("helloworld") << endl;
 
-	for (auto& p : primes)
-		cout << p << " ";
-	cout << endl;
-
-	for (int i = 1; i < 100; i++) {
-		cout << i << " - ";
-		cout << pg.countPrimeFactorsOf(i) << " - ";
-		vector<int> pf = pg.getPrimeFactorsOf(i);
-		for (auto& f : pf)cout << f << " ";
-		cout << endl;
-	} */
-	//vector<int> a = {1,2,3,4,5};
 
 	//makeSubsets(a,3);
 

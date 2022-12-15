@@ -101,7 +101,8 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ArrayUtility.h" />
+    <ClInclude Include="Trie.h" />
+    <ClInclude Include="VectorUtility.h" />
     <ClInclude Include="BaseConversion.h" />
     <ClInclude Include="BigInt.h" />
     <ClInclude Include="DisjointSet.h" />

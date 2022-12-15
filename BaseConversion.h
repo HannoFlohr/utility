@@ -34,7 +34,7 @@ char reValue(const int &v) {
 
 //converts the decimal 'number' to its representation in base 'b' 
 std::string fromDecimal(int number, const int &base) {
-	string result = "";
+	std::string result = "";
 	int index = 0;
 	while (number > 0) {
 		result += reValue(number % base); 
