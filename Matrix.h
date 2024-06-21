@@ -1,6 +1,4 @@
-#ifndef MATRIX_H_
-#define MATRIX_H_
-
+#pragma once
 #include<vector>
 #include<iostream>
 #include<algorithm>
@@ -343,5 +341,3 @@ void Matrix<T>::printMatrix() {
 	std::cout << std::endl;
   }
 }
-
-#endif

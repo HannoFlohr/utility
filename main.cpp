@@ -3,14 +3,31 @@
 #include "PrimeGenerator.h"
 #include "StringUtility.h"
 #include "Trie.h"
+#include "ScopedTimer.h"
+#include "StdIOHelper.h"
 #include<iostream>
+#include<math.h>
+
+#include "Knapsack.h"
 
 using namespace std;
 
-
+void scopedTimerTest() {
+	ScopedTimer timer;
+	long long sum = 1;
+	for (long long i = 0; i < 10000000000; i++) 
+		sum *= i;
+}
 
 int main() {
-	TrieNode* root = new TrieNode();
+	vector<int> weights = { 3,3,5,6 };
+	vector<int> values = { 1,4,6,8 };
+	cout << knapsack01MaxProfit(weights,values,10) << endl;
+
+	vector<int> items = knapsack01ItemsForMaxProfit(weights, values, 10);
+	for (int i : items) cout << i << " "; cout << endl;
+
+	/*TrieNode* root = new TrieNode();
 	root->insert("hello");
 	cout << root->search("hello") << endl;
 	root->insert("helloworld");
@@ -25,7 +42,7 @@ int main() {
 	root->remove(root, "h");
 	cout << root->search("h") << endl;
 	cout << root->search("hell") << endl;
-	cout << root->search("helloworld") << endl;
+	cout << root->search("helloworld") << endl;*/
 
 
 	//makeSubsets(a,3);

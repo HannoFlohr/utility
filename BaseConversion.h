@@ -1,6 +1,4 @@
-#ifndef BASECONVERSION_H_
-#define BASECONVERSION_H_
-
+#pragma once
 #include <iostream>
 #include <string>
 
@@ -43,5 +41,3 @@ std::string fromDecimal(int number, const int &base) {
 	std::reverse(result.begin(), result.end());
 	return result;
 }
-
-#endif 

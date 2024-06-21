@@ -1,19 +1,20 @@
 #include <iostream>
 #include <cstring>
+#include <vector> 
 
 using namespace std;
 
 //computes all primes up to MAXP and stores them
-vector<int> primes;
+std::vector<int> primes;
 const int MAXP = 100;
 void sieveOfEratosthenes() {
-    vector<bool> prime(MAXP+1,true);
-    for(int p=2; p*p<=MAXP; p++) 
+    std::vector<bool> prime (MAXP+1,true);
+    for(int p = 2; p*p <= MAXP; ++p) 
         if(prime[p] == true) 
-            for(int i=p*p; i<=MAXP; i+=p) 
+            for(int i = p*p; i <= MAXP; i += p) 
                 prime[i] = false;
 
-    for(int p=2; p<=MAXP; p++) 
+    for(int p = 2; p <= MAXP; p++) 
         if(prime[p])
             primes.push_back(p);
 }

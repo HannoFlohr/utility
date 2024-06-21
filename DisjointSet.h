@@ -1,6 +1,4 @@
-#ifndef DISJOINTSET_H_
-#define DISJOINTSET_H_
-
+#pragma once
 #include <unordered_map>
 
 class DisjointSet {
@@ -33,5 +31,3 @@ public:
 		return true;
 	}
 };
-
-#endif
